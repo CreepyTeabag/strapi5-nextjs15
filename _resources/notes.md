@@ -43,3 +43,9 @@ const homePageQuery = qs.stringify({
 
 const result = await fetch(`http://localhost:1337/api/home-page/?${homePageQuery}`)
 ```
+
+При создании новых страниц нужно:
+
+- создать необходимую структуру данных в Content-Type Builder
+- создать страницу в Content Manager
+- в Settings/Roles разрешить доступ к данным этой страницы
