@@ -1,4 +1,6 @@
 import { BlockRenderer } from "@/components/BlockRenderer";
+import { BlogCard } from "@/components/BlogCard";
+import { ContentList } from "@/components/ContentList";
 import { getHomePage } from "@/data/loaders";
 import { notFound } from "next/navigation";
 
@@ -14,5 +16,17 @@ export default async function HomeRoute() {
   const data = await loader();
   const blocks = data?.blocks || [];
 
-  return <BlockRenderer blocks={blocks} />;
+  return (
+    <>
+      <BlockRenderer blocks={blocks} />
+      <div className="container">
+        <ContentList
+          headline="Featured Articles"
+          path="/api/articles"
+          component={BlogCard}
+          featured
+        />
+      </div>
+    </>
+  );
 }
